@@ -26,7 +26,7 @@
  * Math class: https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_methods_system_math.htm
  * Classes: https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_understanding.htm
  *
- * @author Your Name
+ * @author olabisi aruna
  */
 
 public with sharing class ClassesObjectsMethods {
@@ -40,17 +40,25 @@ public with sharing class ClassesObjectsMethods {
      */
     public static List<String> practiceStringMethods() {
         // Initialize a String with 'Hello, Salesforce!'
-        
+        string greeting = 'Hello, Salesforce!';
         // Get the length of the String        
         // Get a substring of the String of the first 5 characters
         // Convert the String to lower case
-        
+        Integer stringLength = greeting.length();
+        string strLength = string.valueOf(stringLength);
+        string stringSubstring = greeting.substring(0, 5);
+        string greetingLower = greeting.toLowerCase();
         // Return the list with the string data
         // In the first position add the string length
         // In the second position add the substring
         // In the third position add the string in lower case
+            List <string> practiceStringMethods = new List<string>();
+            practiceStringMethods.add(strLength);
+            practiceStringMethods.add(stringSubstring);
+            practiceStringMethods.add(greetingLower);
+          
 
-        return null; // Replace null with the variable you used to store the result
+        return practiceStringMethods; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -62,14 +70,18 @@ public with sharing class ClassesObjectsMethods {
      */
     public static List<Boolean> checkStringContent(String input) {
         // Initialize a list to store the results
-        
+          List<Boolean> stringContent = new List<Boolean>();
         // Check if the string starts with 'Sales'
-        
+          
+        Boolean startsWithSales = input.startsWith('Sales');
         // Check if the string ends with 'Force'
-        
+        Boolean endsWith = input.endsWith('Force');
         // Check if the string contains 'Awesome'
-        
-        return null; // Replace null with the variable you used to store the result
+        Boolean containsInput = input.contains('Awesome');
+        stringContent.add(startsWithSales);
+        stringContent.add(endsWith);
+        stringContent.add(containsInput);
+        return stringContent; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -81,15 +93,15 @@ public with sharing class ClassesObjectsMethods {
      */
     public static String removeDuplicateWords(String sentence) {
         // Split the sentence into words
-
+        List<String> words = sentence.split(' ');
         // Create a set to store the unique words
-
+        Set <string> noDuplicates = new set<string>();
         // Add each word to the set
-
+         noDuplicates.addAll(words);
         // Join the unique words back into a sentence
-
+          String newSentence = string.join(new list<string> (noDuplicates), ' ');
         // Return the sentence with unique words
-        return null; // Replace null with the variable you used to store the result
+        return newSentence; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -102,16 +114,23 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Integer countVowels(String str) {
         // Initialize the result Integer
-
-        /*
-        for () {
+           integer vowelCount = 0;
+           set<string> vowels = new set<String>{'a','e','i','o','u'};
+        
             // get individual characters from the string - hint use substring or split
+            List<String> chars = str.split('');
+            
             // check if the character is a vowel
+            for (String value : chars) {
+                if (vowels.contains(value)) {
+                  vowelCount++;
+                }
+            
             // if it is a vowel, increment the result Integer
         }
-        */
+        
 
-        return null; // Replace null with the variable you used to store the result
+        return vowelCount; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -126,16 +145,24 @@ public with sharing class ClassesObjectsMethods {
         List<String> scientistNames = new List<String>{'Tim Berners-Lee', 'Alan Turing', 'Grace Hopper', 'Donald Knuth', 'Guido van Rossum', 'Ken Thompson', 'Stephen Hawking'};
 
         // The variable to store the concatenated string
-
+         string gScientists = '';
         // Loop through the list of scientists' names
-
+              for (string names : scientistNames) {
+                if (names.containsIgnoreCase('g') == false) {
+                    continue;
+                } else {
+                    gScientists += names + ','; 
+                }
+              }
             // If the name doesn't contain the letter 'G', skip this iteration
 
             // Add the name to the result string, followed by a comma
 
         // Remove the last comma from the result string
-
-        return null; // Replace null with the variable you used to store the result
+         if (gScientists.endsWith(',')) {
+            gScientists = gScientists.substring(0, gScientists.length() - 1);
+           } 
+        return gScientists; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -148,11 +175,12 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Double calculateDifferenceOfSquares(Double a, Double b) {
         // Square the input numbers using the Math.pow() function
-
+            Double aSquare = math.pow(a, 2);
+            Double bSquare = math.pow(b, 2);
         // Calculate the absolute difference using Math.abs() function
-
+            double absoluteResult = math.abs(aSquare) - math.abs(bsquare);
         // Return the result
-        return null; // Replace null with the variable you used to store the result
+        return absoluteResult; // Replace null with the variable you used to store the result
     }
 
     /**
