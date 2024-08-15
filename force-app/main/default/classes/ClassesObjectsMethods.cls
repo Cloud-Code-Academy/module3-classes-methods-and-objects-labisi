@@ -347,8 +347,8 @@ public with sharing class ClassesObjectsMethods {
      */
     public class Person {
         // Declare private two instance variables - (TEXT) name and (Number) age
-           private string name;
-           private Integer age;
+            string name;
+            Integer age;
         // Constructor to initialize the name and age
            public Person(string name, Integer age){
                this.name = name;
